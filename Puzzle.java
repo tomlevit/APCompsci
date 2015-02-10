@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 
 public class Puzzle {
     ArrayList<String> words;
+    String word = "test";
+    char guessed;
+    String wrongGuesses;
+    
     public Puzzle(){
         try{
             File f = new File("words.txt");
@@ -20,19 +24,29 @@ public class Puzzle {
     }
 
     public void show(){
-        for(int i = 0; i < words.size(); i++){
+        System.out.print("\nPlease input your guess:");
+        for(int i = 0; i < word.length(); i++){
             System.out.print("_");
         }
-        System.out.print("\nPlease input your guess:");
-
+        
         System.out.print("\nWrong letters:");
+        wrongGuesses = wrongGuesses += guessed;
+        System.out.print(wrongGuesses);
     }
 
     public boolean isUnsolved(){
         return true;
     }
 
-    public void makeGuess(){
-        
+    public boolean makeGuess(String i){
+        guessed = i;
+        if(word.contains(i)){
+            return true;
+        }
+        return false;
+    }
+    
+    public String getWord(){
+        return word;
     }
 }
