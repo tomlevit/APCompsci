@@ -7,7 +7,7 @@ public class HangmanGame {
         HangingMan hangingMan = new HangingMan();
         Puzzle puzzle = new Puzzle();
         
-        while (puzzle.isUnsolved() && hangingMan.isntDead()) {
+        while (!puzzle.isUnsolved() && hangingMan.isntDead()) {
             hangingMan.show();
             puzzle.show();
             System.out.print("\nMake a guess: ");

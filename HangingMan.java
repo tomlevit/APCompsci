@@ -1,6 +1,6 @@
 public class HangingMan {
 
-    private int numWrongGuesses;
+    public int numWrongGuesses = 0;
     String[] HangmanImage = {   
             "+----+\n"+
             "|\n"+
@@ -45,19 +45,21 @@ public class HangingMan {
             "/\\\n",
         };
 
-    int t = 0;
+    
     public void show(){
-        System.out.print(HangmanImage[t]);
+        System.out.print(HangmanImage[numWrongGuesses]);
     }
 
     public void dieSomeMore(){
-        System.out.print("\f" + HangmanImage[t]);
-        t++;
+        System.out.print("\f" + HangmanImage[numWrongGuesses]);
+        numWrongGuesses++;
     }
 
     public boolean isntDead(){
-        if(numWrongGuesses == 7)
+        if(numWrongGuesses == 6){
             return false;
-        return true;
+        }else{
+            return true;
+        }
     }
 }
